@@ -8,8 +8,8 @@ variable "instance_type" {
   description = "type of the ec2 instance type"
   validation {
     #condition = var.instance_type == "t2.micro" || var.instance_type == "t3.micro"
-    #condition     = contains(["t2.micro", "t3.micro"], var.instance_type)
-    condition = startswith(var.instance_type, "t3")
+    condition = contains(["t2.micro", "t3.micro"], var.instance_type)
+    #condition = startswith(var.instance_type, "t3")
     error_message = "Please enter the valid instance type Allowed Values are t2.micro or t3.micro"
   }
 }
@@ -55,4 +55,9 @@ variable "additional_tags" {
   type = map(string)
   default = {
   }
+}
+
+variable "my_sensitive_value" {
+  type      = string
+  sensitive = true
 }

@@ -13,16 +13,16 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-  root_block_device {
-    delete_on_termination = true
-    volume_size           = var.root_block_device.volume_size
-    volume_type           = var.root_block_device.volume_type
-  }
+# resource "aws_instance" "web" {
+#   ami           = data.aws_ami.ubuntu.id
+#   instance_type = var.instance_type
+#   root_block_device {
+#     delete_on_termination = true
+#     volume_size           = var.root_block_device.volume_size
+#     volume_type           = var.root_block_device.volume_type
+#   }
 
-  tags = merge(var.additional_tags, {
-    Name = "YOgaraj"
-  })
-}
+#   tags = merge(local.common_tags, var.additional_tags, {
+#     Name = "Yogaraj"
+#   })
+# }

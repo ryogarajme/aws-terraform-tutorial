@@ -1,4 +1,4 @@
-instance_type = "t3.xlarge"
+instance_type = "t2.micro"
 
 root_block_device = {
   volume_size = 10
@@ -6,5 +6,5 @@ root_block_device = {
 }
 
 additional_tags = {
-  Managed_by = "terraform"
+  owned_by = "terraform.tfvars"
 }

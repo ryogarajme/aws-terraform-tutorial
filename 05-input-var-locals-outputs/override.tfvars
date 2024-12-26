@@ -1,1 +1,3 @@
-instance_type = "t3.2xlarge"
+additional_tags = {
+  owned_by = "overide.tfavrs terraform"
+}

@@ -1,4 +1,4 @@
- instance_type = "t3.small"
+#  instance_type = "t2.micro"
 
 # root_block_device = {
 #   volume_size = 10
@@ -6,5 +6,5 @@
 # }
 
 additional_tags = {
-  Managed_by = "prod.auto.tfavrs terraform"
+  owned_by = "prod.auto.tfavrs terraform"
 }
