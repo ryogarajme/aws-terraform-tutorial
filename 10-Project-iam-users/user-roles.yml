@@ -1,0 +1,8 @@
+users:
+  - username: yoga
+    roles: [readonly, developer]
+  - username: raj
+    roles: [admin, auditor]
+  - username: John
+    roles: [readonly]
+  
