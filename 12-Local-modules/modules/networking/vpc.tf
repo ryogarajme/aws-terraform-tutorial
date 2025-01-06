@@ -6,6 +6,9 @@ locals {
   public_subnets = {
     for key, config in var.subnet_config : key => config if config.public
   }
+  private_subnets = {
+    for key, config in var.subnet_config : key => config if !config.public
+  }
 }
 resource "aws_vpc" "this" {
   cidr_block = var.vpc_config.cidr_block
@@ -35,7 +38,7 @@ resource "aws_subnet" "this" {
 }
 
 resource "aws_internet_gateway" "this" {
-  count = length(local.public_subnets) > 0 ? 1 : 0
+  count  = length(local.public_subnets) > 0 ? 1 : 0
   vpc_id = aws_vpc.this.id
 }
 
