@@ -25,6 +25,7 @@ resource "aws_subnet" "this" {
   cidr_block        = each.value.cidr_block
   tags = {
     Name = each.key
+    Access = each.value.public ? "public" : "private"
   }
   lifecycle {
     precondition {
