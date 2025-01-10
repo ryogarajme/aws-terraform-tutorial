@@ -3,6 +3,12 @@ import {
   id = "manual-created-lambda"
 }
 
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "${path.root}/build/index.mjs"
+  output_path = "${path.root}/lambda.zip"
+}
+
 resource "aws_lambda_function" "this" {
   description                        = "A starter AWS Lambda function."
   filename = null
