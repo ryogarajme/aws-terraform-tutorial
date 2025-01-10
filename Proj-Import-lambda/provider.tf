@@ -5,7 +5,7 @@ terraform {
       version = "~> 5.0"
     }
     archive = {
-      source = "hashicorp/archive"
+      source  = "hashicorp/archive"
       version = "2.7.0"
     }
   }
@@ -14,4 +14,10 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  default_tags {
+    tags = {
+      managed_by = "terraform"
+      Project = "Lambda Project"
+    }
+  }
 }
